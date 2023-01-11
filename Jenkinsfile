@@ -11,7 +11,7 @@ pipeline {
                             sh "git config user.name 'tuananh281'"
                             // sh "git config --unset http.proxy"
                             sh "cat deployment.yaml"
-                            sh "sed -i 's+tuannanhh/gitops-demo:latest+tuannanhh/gitops-demo:${DOCKERTAG}+g' deployment.yaml"
+                            sh "sed -i 's+tuannanhh/gitops-demo.*+tuannanhh/gitops-demo:${DOCKERTAG}+g' deployment.yaml"
                             sh "cat deployment.yaml"
                             sh "git add ."
                             sh "git commit -m 'Done get update manifest version: ${env.BUILD_NUMBER}'"
