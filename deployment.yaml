@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: gitops-demo
-          image: tuannanhh/gitops-demo:1
+          image: tuannanhh/gitops-demo:2
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
