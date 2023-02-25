@@ -6,12 +6,12 @@ pipeline {
                 script {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
                         withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]){
-                        // withCredentials([usernamePassword(credentialsId: 'tuananh_github')]){
-                            sh "git config user.email tuananh@gmail.com"
-                            sh "git config user.name 'tuananh281'"
+                        // withCredentials([usernamePassword(credentialsId: 'luudinhmac_github')]){
+                            sh "git config user.email nguoiemcuanui@gmail.com"
+                            sh "git config user.name 'luudinhmac'"
                             // sh "git config --unset http.proxy"
                             sh "cat deployment.yaml"
-                            sh "sed -i 's+tuannanhh/gitops-demo.*+tuannanhh/gitops-demo:${DOCKERTAG}+g' deployment.yaml"
+                            sh "sed -i 's+luudinhmac/gitops-demo.*+luudinhmac/gitops-demo:${DOCKERTAG}+g' deployment.yaml"
                             sh "cat deployment.yaml"
                             sh "git add ."
                             sh "git commit -m 'Done get update manifest version: ${env.BUILD_NUMBER}'"
